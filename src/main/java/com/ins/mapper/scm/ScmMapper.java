@@ -22,4 +22,6 @@ public interface ScmMapper {
   List<SCM_BCR_OUT_ADD> scmOutBcrAdd(SCM_BCR_OUT_ADD p);
 
   List<SCM_PART_GET> scmPartGet(SCM_PART_GET p);
+
+  List<SCM_CARGO_GET> scmCargoGet(SCM_CARGO_GET p);
 }

@@ -47,4 +47,7 @@ public class ScmService {
   public List<SCM_PART_GET> scmPartGet(SCM_PART_GET p) {
     return ScmMapper.scmPartGet(p);
   }
+
+  public List<SCM_CARGO_GET> scmCargoGet(SCM_CARGO_GET p) { return ScmMapper.scmCargoGet(p);
+  }
 }

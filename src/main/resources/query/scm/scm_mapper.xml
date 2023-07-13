@@ -42,5 +42,9 @@
         EXEC SP_MB_SCM_OUT_BCR_ADD #{bcr_no},#{cargo_code},#{work_date},#{user_code}
     </select>
 
+    <!-- 창고 리스트 조회-->
+    <select id="scmCargoGet" resultType="com.ins.scm.dto.SCM_CARGO_GET">
+        EXEC SP_MB_SCM_CARGO_CD_GET #{type}
+    </select>
 
 </mapper>

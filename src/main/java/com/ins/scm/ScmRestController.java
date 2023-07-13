@@ -58,4 +58,9 @@ public class ScmRestController {
     return scmService.scmPartGet(p);
   }
 
+  @RequestMapping(value = "/scmCargoGet", method = RequestMethod.POST)
+  public List<SCM_CARGO_GET> scmCargoGet(@RequestBody SCM_CARGO_GET p) {
+    return scmService.scmCargoGet(p);
+  }
+
 }

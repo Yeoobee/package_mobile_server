@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ins.mapper.scm.ScmMapper">
+
+    <!-- <resultMap id="list1" type="com.ins.scm.dto.MESSAGE"></resultMap>
+    <resultMap id="list2" type="com.ins.scm.dto.SCM_OUT_ADD"></resultMap> -->
+
+
+    <!-- 업체조회 -->
+    <select id="suppGet" resultType="com.ins.scm.dto.SCM_IN">
+        EXEC SP_MB_SUPP_CD_GET
+    </select>
+
+    <!-- 자재입고 조회 -->
+    <select id="scmInGet" resultType="com.ins.scm.dto.SCM_IN">
+        EXEC SP_MB_SCM_IN_GET #{work_date}, #{supp_code}
+    </select>
+
+    <!-- 자재입고 서브 조회 -->
+    <select id="scmInSubGet" resultType="com.ins.scm.dto.SCM_IN_SUB">
+        EXEC SP_MB_SCM_IN_SUB_GET #{in_no}
+    </select>
+
+    <!-- 자재출고 조회 -->
+    <select id="scmOutGet" resultType="com.ins.scm.dto.SCM_OUT_GET">
+        EXEC SP_MB_SCM_OUT_GET #{work_date}, #{cargo_code}
+    </select>
+
+    <!-- 자재출고 서브 조회 -->
+    <select id="scmOutSubGet" resultType="com.ins.scm.dto.SCM_OUT_SUB_GET">
+        EXEC SP_MB_SCM_OUT_SUB_GET #{work_date}, #{cargo_code}, #{part_code}
+    </select>
+
+    <!-- 자재출고진행 (바코드) -->
+    <select id="scmOutBcrAdd" resultType="com.ins.scm.dto.SCM_BCR_OUT_ADD">
+        EXEC SP_MB_SCM_OUT_BCR_ADD #{bcr_no},#{cargo_code},#{work_date},#{user_code}
+    </select>
+
+
+</mapper>

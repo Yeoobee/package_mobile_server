@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ins.mapper.user.UserMapper">
+
+    <!-- 로그인 진행 -->
+    <select id="login" resultType="com.ins.common.dto.Message">
+        EXEC SP_MB_LOGIN_ADD #{user_code},#{user_pwd}
+    </select>
+
+
+</mapper>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ins.mapper.wms.WmsMapper">
+
+    <!-- 생산실적 계획 조회 -->
+    <select id="wmsPlanGet" resultType="com.ins.wms.dto.WMS_PLAN_GET">
+        EXEC SP_CS_POP_NG_PLAN_GET
+    </select>
+
+    <!-- 생산실적등록 박스바코드 스캔 -->
+    <select id="wmsBoxAdd" resultType="com.ins.wms.dto.WMS_BOX_ADD">
+        EXEC SP_CS_WMS_BOX_ADD #{keyword}
+    </select>
+
+    <!-- 생산실적등록 제품바코드 스캔 -->
+    <select id="wmsBcrAdd" resultType="com.ins.wms.dto.WMS_BCR_ADD">
+        EXEC SP_CS_WMS_BCR_ADD #{keyword}, #{keyword2}, #{qty}, #{keyword4}, #{keyword5}, #{keyword6}
+    </select>
+
+    <!-- 생산실적 등록 -->
+    <select id="wmsInAdd" resultType="com.ins.wms.dto.WMS_IN_ADD">
+        EXEC SP_CS_WMS_IN_ADD #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{keyword5}
+    </select>
+
+    <!-- 제품출고요청 조회 -->
+    <select id="wmsOutOrdGet" resultType="com.ins.wms.dto.WMS_OUT_ORD_GET">
+        EXEC SP_CS_WMS_OUT_ORD_GET #{keyword}
+    </select>
+
+    <!-- 제품출고 등록-->
+    <select id="wmsOutAdd" resultType="com.ins.wms.dto.WMS_OUT_ADD">
+        EXEC SP_CS_WMS_OUT_ADD #{keyword}, #{keyword2}, #{keyword3}
+    </select>
+
+    <!-- 제품출고 등록(출고일자추가)-->
+    <select id="wmsOutAdd2" resultType="com.ins.wms.dto.WMS_OUT_ADD">
+        EXEC SP_CS_WMS_OUT_ADD_2 #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}
+    </select>
+
+    <!-- 제품출고 취소 -->
+    <select id="wmsOutCancel" resultType="com.ins.wms.dto.WMS_OUT_CANCEL">
+        EXEC SP_CS_WMS_OUT_CANCEL #{keyword}, #{keyword2}
+    </select>
+
+    <!-- 제품이동 창고 조회 -->
+    <select id="wmsCargoGet" resultType="com.ins.wms.dto.WMS_CARGO_GET">
+        EXEC SP_CS_WMS_CARGO_GET #{keyword}, #{keyword2}
+    </select>
+
+    <!-- 제품이동 등록 -->
+    <select id="wmsMoveAdd" resultType="com.ins.wms.dto.WMS_MOVE_ADD">
+        EXEC SP_CS_WMS_MOVE_ADD #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{keyword5}
+    </select>
+
+    <!-- 제품이동 수불 등록 -->
+    <select id="wmsMoveIoAdd" resultType="com.ins.wms.dto.WMS_MOVE_IO_ADD">
+        EXEC SP_CS_WMS_MOVE_IO_ADD #{keyword}, #{keyword2}
+    </select>
+
+    <!-- 제품검사 등록 -->
+    <select id="wmsQcAdd" resultType="com.ins.wms.dto.WMS_QC_ADD">
+        EXEC SP_CS_WMS_QC_NG_ADD #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{keyword5}, #{keyword6}
+    </select>
+
+    <!-- 제품검사 수불 등록 -->
+    <select id="wmsQcProdAdd" resultType="com.ins.wms.dto.WMS_QC_PROD_ADD">
+        EXEC SP_CS_QMS_PROD_ADD #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{qty}, #{keyword6}
+    </select>
+
+    <!-- 제품검사 불량유형 리스트 조회 -->
+    <select id="wmsNgListGet" resultType="com.ins.wms.dto.WMS_NG_LIST_GET">
+        EXEC SP_CS_WMS_QC_NG_LST_GET #{keyword}, #{keyword2}
+    </select>
+
+
+
+    <!-- 사유 코드 조회 -->
+    <select id="reasonCdGet" resultType="com.ins.wms.dto.REASON_CD_GET">
+        EXEC SP_CS_REASON_CD_GET #{keyword}
+    </select>
+
+    <!-- 제품반입 저장 -->
+    <select id="wmsRetReadyAdd" resultType="com.ins.wms.dto.WMS_RET_READY_ADD">
+        EXEC SP_CS_WMS_RET_READY_ADD #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{keyword5}
+    </select>
+
+    <!-- 제품반입/반출 폐기 요청 조회 -->
+    <select id="wmsRetOutOrdGet" resultType="com.ins.wms.dto.WMS_RET_OUT_ORD_GET">
+        EXEC SP_CS_WMS_RET_OUT_ORD_GET 
+    </select>
+
+    <!-- 제품반입/반출 폐기 등록 -->
+    <select id="wmsRetOutAdd" resultType="com.ins.wms.dto.WMS_RET_OUT_ADD">
+        EXEC SP_CS_WMS_RET_OUT_ADD #{keyword}, #{keyword2}, #{keyword3}
+    </select>
+
+    <!-- 제품재고실사 조회 -->
+    <select id="wmsStockSetGet" resultType="com.ins.wms.dto.WMS_STOCK_SET_GET">
+        EXEC SP_CS_WMS_STOCK_SET_GET 
+    </select>
+
+    <!-- 제품재고실사 저장 -->
+    <select id="wmsStockSetAdd" resultType="com.ins.wms.dto.WMS_STOCK_SET_ADD">
+        EXEC SP_CS_WMS_STOCK_SET_ADD #{keyword}, #{keyword2}, #{keyword3}
+    </select>
+
+    <!-- 제품기초재고 저장 -->
+    <select id="wmsBoxScanBeginAdd" resultType="com.ins.wms.dto.WMS_BOX_SCAN_BEGIN_ADD">
+        EXEC SP_CS_WMS_BOX_SCAN_BEGIN_ADD #{keyword}, #{keyword2}
+    </select>
+
+     <!-- 생산실적등록 박스바코드 스캔(박스바코드만 스캔하도록 수정) -->
+    <select id="wmsBoxAdd2" resultType="com.ins.wms.dto.WMS_BOX_ADD2">
+        EXEC SP_CS_WMS_BOX_ADD_2 #{keyword}
+    </select>
+
+        <!-- 제품검사 등록 수정 후 -->
+    <select id="wmsQcAdd2" resultType="com.ins.wms.dto.WMS_QC_ADD">
+        EXEC SP_CS_WMS_QC_NG_ADD_2 #{keyword}, #{keyword2}, #{keyword3}, #{keyword4}, #{keyword5}
+    </select>
+
+     <select id="wmsOutOrdSubGet" resultType="com.ins.wms.dto.WMS_OUT_ORD_SUB_GET">
+        EXEC SP_CS_WMS_OUT_ORD_SUB_GET #{keyword}
+    </select>
+
+    <!-- 박스에 들어가 있는 제품바코드 가져오기 -->
+    <select id="wmsBcrGet" resultType="com.ins.wms.dto.WMS_BCR_GET">
+        EXEC SP_CS_WMS_BCR_GET #{keyword}
+    </select>
+
+      <!-- 박스 상태 가져오기 -->
+    <select id="wmsBoxStatusGet" resultType="com.ins.wms.dto.WMS_BOX_STATUS_GET">
+        EXEC SP_CS_WMS_BOX_STATUS_GET #{keyword}, #{keyword2}
+    </select>
+
+    <!-- 박스재고조정을 위해 박스정보 가져오기 -->
+    <select id="wmsBoxStock" resultType="com.ins.wms.dto.WMS_BOX_STOCK_GET">
+        EXEC SP_CS_WMS_BOX_STOCK_REV_GET #{keyword}
+    </select>
+
+    <!-- 박스재고조정 진행 -->
+    <select id="wmsBoxStockAdd" resultType="com.ins.wms.dto.WMS_BOX_STOCK_GET">
+        EXEC SP_CS_WMS_BOX_STOCK_REV_ADD #{keyword}, #{keyword2}
+    </select>
+</mapper>

@@ -62,5 +62,13 @@ public class ScmRestController {
   public List<SCM_CARGO_GET> scmCargoGet(@RequestBody SCM_CARGO_GET p) {
     return scmService.scmCargoGet(p);
   }
+  @RequestMapping(value = "/scmOutBcrNonGet", method = RequestMethod.POST)
+  public List<SCM_OUT_BCR_NON_GET> scmOutBcrNonGet(@RequestBody SCM_OUT_BCR_NON_GET p) {
+    return scmService.scmOutBcrNonGet(p);
+  }
+  @RequestMapping(value = "/scmOutBcrNonAdd", method = RequestMethod.POST)
+  public List<SCM_OUT_BCR_NON_ADD> scmOutBcrNonAdd(@RequestBody SCM_OUT_BCR_NON_ADD p) {
+    return scmService.scmOutBcrNonAdd(p);
+  }
 
 }

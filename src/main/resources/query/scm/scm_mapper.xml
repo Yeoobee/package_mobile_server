@@ -47,4 +47,14 @@
         EXEC SP_MB_SCM_CARGO_CD_GET #{type}
     </select>
 
+    <!-- 바코드 미관리 항목 자재조회-->
+    <select id="scmOutBcrNonGet" resultType="com.ins.scm.dto.SCM_OUT_BCR_NON_GET">
+        EXEC SP_MB_SCM_OUT_BCR_N_GET #{cargo_code}, #{part_code}
+    </select>
+
+    <!-- 바코드 미관리 자재출고-->
+    <select id="scmOutBcrNonAdd" resultType="com.ins.scm.dto.SCM_OUT_BCR_NON_ADD">
+        EXEC SP_MB_SCM_OUT_BCR_N_ADD #{part_code}, #{cargo_code_from},#{cargo_code_to}, #{work_date},#{qty}, #{user_code}
+    </select>
+
 </mapper>

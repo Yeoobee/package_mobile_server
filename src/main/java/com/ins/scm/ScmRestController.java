@@ -53,5 +53,9 @@ public class ScmRestController {
   public List<SCM_BCR_OUT_ADD> scmOutBcrAdd(@RequestBody SCM_BCR_OUT_ADD p) {
     return scmService.scmOutBcrAdd(p);
   }
+  @RequestMapping(value = "/scmPartGet", method = RequestMethod.POST)
+  public List<SCM_PART_GET> scmPartGet(@RequestBody SCM_PART_GET p) {
+    return scmService.scmPartGet(p);
+  }
 
 }

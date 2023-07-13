@@ -7,9 +7,15 @@
 
 
     <!-- 업체조회 -->
-    <select id="suppGet" resultType="com.ins.scm.dto.SCM_IN">
+    <select id="suppGet" resultType="com.ins.scm.dto.SUPP_GET">
         EXEC SP_MB_SUPP_CD_GET
     </select>
+
+    <!-- 품명조회 -->
+    <select id="scmPartGet" resultType="com.ins.scm.dto.SCM_PART_GET">
+        EXEC SP_MB_BPART_CD_GET
+    </select>
+
 
     <!-- 자재입고 조회 -->
     <select id="scmInGet" resultType="com.ins.scm.dto.SCM_IN">

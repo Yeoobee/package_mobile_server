@@ -43,4 +43,8 @@ public class ScmService {
     public List<SCM_BCR_OUT_ADD> scmOutBcrAdd(SCM_BCR_OUT_ADD p) {
       return ScmMapper.scmOutBcrAdd(p);
     }
+
+  public List<SCM_PART_GET> scmPartGet(SCM_PART_GET p) {
+    return ScmMapper.scmPartGet(p);
+  }
 }

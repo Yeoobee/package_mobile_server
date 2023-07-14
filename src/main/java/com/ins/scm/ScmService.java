@@ -56,4 +56,10 @@ public class ScmService {
 
   public List<SCM_OUT_BCR_NON_ADD> scmOutBcrNonAdd(SCM_OUT_BCR_NON_ADD p) {return ScmMapper.scmOutBcrNonAdd(p);
   }
+
+  public List<TRADING_GET> tradingGet(TRADING_GET p) {return ScmMapper.tradingGet(p);
+  }
+
+  public List<QMS_PART_GET> qmsPartGet(QMS_PART_GET p) {return ScmMapper.qmsPartGet(p);
+  }
 }

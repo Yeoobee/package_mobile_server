@@ -70,5 +70,13 @@ public class ScmRestController {
   public List<SCM_OUT_BCR_NON_ADD> scmOutBcrNonAdd(@RequestBody SCM_OUT_BCR_NON_ADD p) {
     return scmService.scmOutBcrNonAdd(p);
   }
+  @RequestMapping(value = "/tradingGet", method = RequestMethod.POST)
+  public List<TRADING_GET> tradingGet(@RequestBody TRADING_GET p) {
+    return scmService.tradingGet(p);
+  }
+  @RequestMapping(value = "/qmsPartGet", method = RequestMethod.POST)
+  public List<QMS_PART_GET> qmsPartGet(@RequestBody QMS_PART_GET p) {
+    return scmService.qmsPartGet(p);
+  }
 
 }

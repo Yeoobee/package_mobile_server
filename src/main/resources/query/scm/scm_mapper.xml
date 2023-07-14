@@ -57,4 +57,14 @@
         EXEC SP_MB_SCM_OUT_BCR_N_ADD #{part_code}, #{cargo_code_from},#{cargo_code_to}, #{work_date},#{qty}, #{user_code}
     </select>
 
+    <!-- 거래명세서 스캔 -->
+    <select id="tradingGet" resultType="com.ins.scm.dto.TRADING_GET">
+        EXEC SP_MB_TRADING_GET #{tr_no}
+    </select>
+
+    <!-- 수입검사 스캔(파트코드) -->
+    <select id="qmsPartGet" resultType="com.ins.scm.dto.QMS_PART_GET">
+        EXEC SP_MB_QMS_RECV_GET #{part_code}
+    </select>
+
 </mapper>

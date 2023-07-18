@@ -15,4 +15,12 @@ public class QMS_PART_GET {
   private Double qc_spec2;
   private int qc_qty;
 
+  private String val1;
+  private String val2;
+  private String val3;
+  private String val4;
+  private String val5;
+  private String qc_result;
+
+
 }

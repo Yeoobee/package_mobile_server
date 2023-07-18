@@ -67,4 +67,11 @@
         EXEC SP_MB_QMS_RECV_GET #{part_code}
     </select>
 
+    <!-- 수입검사 진행-->
+    <select id="qmsRecvAdd" resultType="com.ins.scm.dto.QMS_RECV_ADD">
+        EXEC SP_MB_QMS_RECV_ADD #{tr_no}, #{part_code}, #{ord_no}, #{qc_no}, #{seq}, #{qc_item1}, #{qc_item2}, #{qc_item3}, #{result_type}, #{qc_spec1}
+                                ,#{qc_spec2}, #{qc_value1}, #{qc_value2}, #{qc_value3}, #{qc_value4}, #{qc_value5}, #{qc_result1}, #{qc_result2}, #{qc_result3}, #{qc_result4}, #{qc_result5}
+                                ,#{qc_result}, #{user_code}
+    </select>
+
 </mapper>

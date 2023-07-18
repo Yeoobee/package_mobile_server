@@ -79,4 +79,9 @@ public class ScmRestController {
     return scmService.qmsPartGet(p);
   }
 
+  @RequestMapping(value = "/qmsRecvAdd", method = RequestMethod.POST)
+  public List<QMS_RECV_ADD> qmsPartGet(@RequestBody QMS_RECV_ADD p) {
+    return scmService.qmsRecvAdd(p);
+  }
+
 }

@@ -62,4 +62,7 @@ public class ScmService {
 
   public List<QMS_PART_GET> qmsPartGet(QMS_PART_GET p) {return ScmMapper.qmsPartGet(p);
   }
+
+  public List<QMS_RECV_ADD> qmsRecvAdd(QMS_RECV_ADD p) {return ScmMapper.qmsRecvAdd(p);
+  }
 }

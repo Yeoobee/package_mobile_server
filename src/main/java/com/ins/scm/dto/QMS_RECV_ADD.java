@@ -7,6 +7,7 @@ public class QMS_RECV_ADD {
  private String tr_no;
  private String part_code;
  private String ord_no;
+ private String data_list;
  private String qc_no;
  private int seq;
  private String qc_item1;

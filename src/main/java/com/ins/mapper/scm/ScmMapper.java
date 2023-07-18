@@ -29,4 +29,8 @@ public interface ScmMapper {
   List<TRADING_GET> tradingGet(TRADING_GET p);
   List<QMS_PART_GET> qmsPartGet(QMS_PART_GET p);
   List<QMS_RECV_ADD> qmsRecvAdd(QMS_RECV_ADD p);
+  List<SCM_QC_ADD> scmQcAdd(SCM_QC_ADD p);
+  List<SCM_STOCK_SET_GET> scmStockSetGet(SCM_STOCK_SET_GET p);
+  List<SCM_STOCK_SET_ADD> scmStockSetAdd(SCM_STOCK_SET_ADD p);
+  List<SCM_STOCK_SET_REASON_CD_GET> scmStockSetReasonCdGet(SCM_STOCK_SET_REASON_CD_GET p);
 }

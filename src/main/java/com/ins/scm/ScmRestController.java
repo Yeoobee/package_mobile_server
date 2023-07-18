@@ -83,5 +83,22 @@ public class ScmRestController {
   public List<QMS_RECV_ADD> qmsPartGet(@RequestBody QMS_RECV_ADD p) {
     return scmService.qmsRecvAdd(p);
   }
+  @RequestMapping(value = "/scmQcAdd", method = RequestMethod.POST)
+  public List<SCM_QC_ADD> scmQcAdd(@RequestBody SCM_QC_ADD p) {
+    return scmService.scmQcAdd(p);
+  }
+  @RequestMapping(value = "/scmStockSetGet", method = RequestMethod.POST)
+  public List<SCM_STOCK_SET_GET> scmStockSetGet(@RequestBody SCM_STOCK_SET_GET p) {
+    return scmService.scmStockSetGet(p);
+  }
+  @RequestMapping(value = "/scmStockSetAdd", method = RequestMethod.POST)
+  public List<SCM_STOCK_SET_ADD> scmStockSetAdd(@RequestBody SCM_STOCK_SET_ADD p) {
+    return scmService.scmStockSetAdd(p);
+  }
+
+  @RequestMapping(value = "/scmStockSetReasonCdGet", method = RequestMethod.POST)
+  public List<SCM_STOCK_SET_REASON_CD_GET> scmStockSetReasonCdGet(@RequestBody SCM_STOCK_SET_REASON_CD_GET p) {
+    return scmService.scmStockSetReasonCdGet(p);
+  }
 
 }

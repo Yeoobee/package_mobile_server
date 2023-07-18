@@ -65,4 +65,16 @@ public class ScmService {
 
   public List<QMS_RECV_ADD> qmsRecvAdd(QMS_RECV_ADD p) {return ScmMapper.qmsRecvAdd(p);
   }
+
+  public List<SCM_QC_ADD> scmQcAdd(SCM_QC_ADD p) {return ScmMapper.scmQcAdd(p);
+  }
+
+  public List<SCM_STOCK_SET_GET> scmStockSetGet(SCM_STOCK_SET_GET p) {return ScmMapper.scmStockSetGet(p);
+  }
+
+  public List<SCM_STOCK_SET_ADD> scmStockSetAdd(SCM_STOCK_SET_ADD p) {return ScmMapper.scmStockSetAdd(p);
+  }
+
+  public List<SCM_STOCK_SET_REASON_CD_GET> scmStockSetReasonCdGet(SCM_STOCK_SET_REASON_CD_GET p) {return ScmMapper.scmStockSetReasonCdGet(p);
+  }
 }

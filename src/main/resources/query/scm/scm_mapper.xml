@@ -74,4 +74,24 @@
                                 ,#{qc_result}, #{user_code}
     </select>
 
+    <!-- 거래명세서 입고진행 -->
+    <select id="scmQcAdd" resultType="com.ins.scm.dto.SCM_QC_ADD">
+        EXEC SP_MB_SCM_QC_ADD #{tr_no},#{remark},#{user_code}
+    </select>
+
+    <!-- 재고조정 바코드 조회 -->
+    <select id="scmStockSetGet" resultType="com.ins.scm.dto.SCM_STOCK_SET_GET">
+        EXEC SP_MB_SCM_STOCK_SET_GET #{cargo_code},#{bcr_no},#{user_code}
+    </select>
+
+    <!-- 재고조정 진행 -->
+    <select id="scmStockSetAdd" resultType="com.ins.scm.dto.SCM_STOCK_SET_ADD">
+        EXEC SP_MB_SCM_STOCK_SET_ADD #{bcr_no},#{qty},#{reason_code},#{user_code}
+    </select>
+
+    <!-- 재고조정 조정사유 조회 -->
+    <select id="scmStockSetReasonCdGet" resultType="com.ins.scm.dto.SCM_STOCK_SET_REASON_CD_GET">
+        EXEC SP_MB_SCM_STOCK_SET_REASON_CD_GET
+    </select>
+
 </mapper>

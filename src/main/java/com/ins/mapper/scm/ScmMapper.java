@@ -3,10 +3,7 @@ package com.ins.mapper.scm;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
-import com.ins.common.dto.Message;
-import com.ins.common.dto.Page;
 import com.ins.scm.dto.*;
-import com.ins.wms.dto.REASON_CD_GET;
 
 @Repository
 public interface ScmMapper {

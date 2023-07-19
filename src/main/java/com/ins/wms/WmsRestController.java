@@ -16,9 +16,14 @@ public class WmsRestController {
   @Autowired
   private WmsService wmsService;
 
-  @RequestMapping(value = "/wmsPlanGet", method = RequestMethod.POST)
-  public List<WMS_PLAN_GET> wmsPlanGet(@RequestBody Page p) {
-    return wmsService.wmsPlanGet(p);
+  @RequestMapping(value = "/qmsProcRouteCdGet", method = RequestMethod.POST)
+  public List<QMS_PROC_ROUTE_CD_GET> qmsProcRouteCdGet(@RequestBody QMS_PROC_ROUTE_CD_GET p) {
+    return wmsService.qmsProcRouteCdGet(p);
+  }
+
+  @RequestMapping(value = "/qmsProcRouteCdAdd", method = RequestMethod.POST)
+  public List<QMS_PROC_ROUTE_CD_ADD> qmsProcRouteCdAdd(@RequestBody QMS_PROC_ROUTE_CD_ADD p) {
+    return wmsService.qmsProcRouteCdAdd(p);
   }
 
 

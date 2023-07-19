@@ -26,6 +26,16 @@ public class WmsRestController {
     return wmsService.qmsProcRouteCdAdd(p);
   }
 
+  @RequestMapping(value = "/wmsLotTrackGet", method = RequestMethod.POST)
+  public List<WMS_LOT_TRACK_GET> wmsLotTrackGet(@RequestBody WMS_LOT_TRACK_GET p) {
+    return wmsService.wmsLotTrackGet(p);
+  }
+
+  @RequestMapping(value = "/procCdGet", method = RequestMethod.POST)
+  public List<PROC_CODE_GET> procCdGet(@RequestBody PROC_CODE_GET p) {
+    return wmsService.procCdGet(p);
+  }
+
 
 
 }

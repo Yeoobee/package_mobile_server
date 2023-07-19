@@ -12,4 +12,9 @@ public class QMS_PROC_ROUTE_CD_GET {
   private String result_type;
   private Double qc_spec1;
   private Double qc_spec2;
+  private Double qc_value_am;
+  private Double qc_value_pm;
+  private String qc_result_am;
+  private String qc_result_pm;
+  private String qc_result;
 }

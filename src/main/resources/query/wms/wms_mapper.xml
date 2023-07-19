@@ -12,5 +12,15 @@
         EXEC SP_MB_QMS_PROC_ROUTE_ADD #{data_list},#{user_code}
     </select>
 
+    <!-- 제품로트추적 -->
+    <select id="wmsLotTrackGet" resultType="com.ins.wms.dto.WMS_LOT_TRACK_GET">
+        EXEC SP_MB_WMS_LOT_TRACK_GET #{bcr_no}
+    </select>
+
+    <!-- 공정 라우팅 조회 -->
+    <select id="procCdGet" resultType="com.ins.wms.dto.PROC_CODE_GET">
+        EXEC SP_MB_PROC_CODE_GET
+    </select>
+
 
 </mapper>

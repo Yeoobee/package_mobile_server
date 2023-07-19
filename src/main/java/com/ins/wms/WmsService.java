@@ -21,4 +21,10 @@ public class WmsService {
 
   public List<QMS_PROC_ROUTE_CD_ADD> qmsProcRouteCdAdd(QMS_PROC_ROUTE_CD_ADD p) {return WmsMapper.qmsProcRouteCdAdd(p);
   }
+
+  public List<WMS_LOT_TRACK_GET> wmsLotTrackGet(WMS_LOT_TRACK_GET p) {return WmsMapper.wmsLotTrackGet(p);
+  }
+
+  public List<PROC_CODE_GET> procCdGet(PROC_CODE_GET p) {return WmsMapper.procCdGet(p);
+  }
 }

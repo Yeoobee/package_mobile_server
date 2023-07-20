@@ -22,5 +22,20 @@
         EXEC SP_MB_PROC_CODE_GET
     </select>
 
+    <!-- 실적등록 대기 리스트 조회 -->
+    <select id="popProdListGet" resultType="com.ins.wms.dto.POP_PROD_LIST_GET">
+        EXEC SP_MB_POP_PROD_LIST_GET #{proc_code}
+    </select>
+
+    <!-- 공정 호기 조회 -->
+    <select id="machineTypeCdGet" resultType="com.ins.wms.dto.MACHINE_TYPE_CODE_GET">
+        EXEC SP_MB_MACHINE_TYPE_CODE_GET
+    </select>
+
+    <!-- 실적등록 진행 -->
+    <select id="popProdAdd" resultType="com.ins.wms.dto.POP_PROD_ADD">
+        EXEC SP_MB_POP_PROD_ADD #{data_list},#{user_code},#{type}
+    </select>
+
 
 </mapper>

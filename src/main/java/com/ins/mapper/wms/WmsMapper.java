@@ -14,6 +14,9 @@ public interface WmsMapper {
   List<QMS_PROC_ROUTE_CD_ADD> qmsProcRouteCdAdd(QMS_PROC_ROUTE_CD_ADD p);
   List<WMS_LOT_TRACK_GET> wmsLotTrackGet(WMS_LOT_TRACK_GET p);
   List<PROC_CODE_GET> procCdGet(PROC_CODE_GET p);
+  List<POP_PROD_LIST_GET> popProdListGet(POP_PROD_LIST_GET p);
+  List<MACHINE_TYPE_CODE_GET> machineTypeCdGet(MACHINE_TYPE_CODE_GET p);
+  List<POP_PROD_ADD> popProdAdd(POP_PROD_ADD p);
 
 
 }

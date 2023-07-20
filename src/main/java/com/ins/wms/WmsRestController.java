@@ -35,6 +35,19 @@ public class WmsRestController {
   public List<PROC_CODE_GET> procCdGet(@RequestBody PROC_CODE_GET p) {
     return wmsService.procCdGet(p);
   }
+  @RequestMapping(value = "/popProdListGet", method = RequestMethod.POST)
+  public List<POP_PROD_LIST_GET> popProdListGet(@RequestBody POP_PROD_LIST_GET p) {
+    return wmsService.popProdListGet(p);}
+
+  @RequestMapping(value = "/machineTypeCdGet", method = RequestMethod.POST)
+  public List<MACHINE_TYPE_CODE_GET> machineTypeCdGet(@RequestBody MACHINE_TYPE_CODE_GET p) {
+    return wmsService.machineTypeCdGet(p);
+  }
+
+  @RequestMapping(value = "/popProdAdd", method = RequestMethod.POST)
+  public List<POP_PROD_ADD> popProdAdd(@RequestBody POP_PROD_ADD p) {
+    return wmsService.popProdAdd(p);
+  }
 
 
 

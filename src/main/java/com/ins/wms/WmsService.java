@@ -27,4 +27,13 @@ public class WmsService {
 
   public List<PROC_CODE_GET> procCdGet(PROC_CODE_GET p) {return WmsMapper.procCdGet(p);
   }
+
+  public List<POP_PROD_LIST_GET> popProdListGet(POP_PROD_LIST_GET p) {return WmsMapper.popProdListGet(p);
+  }
+
+  public List<MACHINE_TYPE_CODE_GET> machineTypeCdGet(MACHINE_TYPE_CODE_GET p) {return WmsMapper.machineTypeCdGet(p);
+  }
+
+  public List<POP_PROD_ADD> popProdAdd(POP_PROD_ADD p) {return WmsMapper.popProdAdd(p);
+  }
 }

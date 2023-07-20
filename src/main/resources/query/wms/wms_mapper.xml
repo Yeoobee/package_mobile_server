@@ -37,5 +37,10 @@
         EXEC SP_MB_POP_PROD_ADD #{data_list},#{user_code},#{type}
     </select>
 
+    <!-- 공정별 작업현황 조회 -->
+    <select id="popProdProcGet" resultType="com.ins.wms.dto.POP_PROD_PROC_GET">
+        EXEC SP_MB_POP_PROD_PROC_GET #{proc_code},#{machine_code}
+    </select>
+
 
 </mapper>

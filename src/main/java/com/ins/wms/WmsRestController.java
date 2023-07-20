@@ -48,6 +48,10 @@ public class WmsRestController {
   public List<POP_PROD_ADD> popProdAdd(@RequestBody POP_PROD_ADD p) {
     return wmsService.popProdAdd(p);
   }
+  @RequestMapping(value = "/popProdProcGet", method = RequestMethod.POST)
+  public List<POP_PROD_PROC_GET> popProdProcGet(@RequestBody POP_PROD_PROC_GET p) {
+    return wmsService.popProdProcGet(p);
+  }
 
 
 

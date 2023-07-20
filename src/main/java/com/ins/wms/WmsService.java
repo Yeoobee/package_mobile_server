@@ -36,4 +36,7 @@ public class WmsService {
 
   public List<POP_PROD_ADD> popProdAdd(POP_PROD_ADD p) {return WmsMapper.popProdAdd(p);
   }
+
+  public List<POP_PROD_PROC_GET> popProdProcGet(POP_PROD_PROC_GET p) {return WmsMapper.popProdProcGet(p);
+  }
 }

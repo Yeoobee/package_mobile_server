@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class POP_PROD_LIST_GET {
   private String plan_no;
-  private String work_date;
+  private String plan_date;
   private int plan_qty;
   private int qty;
   private String part_code;

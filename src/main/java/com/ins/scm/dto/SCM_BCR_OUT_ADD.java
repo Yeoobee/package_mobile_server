@@ -5,6 +5,7 @@ import lombok.Data;
 @Data
 public class SCM_BCR_OUT_ADD {
   private String result;
+  private String work_date;
   private String msg;
   private String bcr_no;
   private String cargo_code;

@@ -39,4 +39,14 @@ public class WmsService {
 
   public List<POP_PROD_PROC_GET> popProdProcGet(POP_PROD_PROC_GET p) {return WmsMapper.popProdProcGet(p);
   }
+
+  public List<QMS_PROD_CHECK_GET> qmsProdCheckGet(QMS_PROD_CHECK_GET p) {return WmsMapper.qmsProdCheckGet(p);
+  }
+
+
+  public List<QMS_PROD_CD_GET> qmsProdCdGet(QMS_PROD_CD_GET p) {return WmsMapper.qmsProdCdGet(p);
+  }
+
+  public List<QMS_PROD_CHECK_ADD> qmsProdCheckAdd(QMS_PROD_CHECK_ADD p) {return WmsMapper.qmsProdCheckAdd(p);
+  }
 }

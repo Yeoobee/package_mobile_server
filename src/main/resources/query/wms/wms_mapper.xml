@@ -42,5 +42,20 @@
         EXEC SP_MB_POP_PROD_PROC_GET #{proc_code},#{machine_code}
     </select>
 
+    <!-- 제품검사 항목 조회 -->
+    <select id="qmsProdCheckGet" resultType="com.ins.wms.dto.QMS_PROD_CHECK_GET">
+        EXEC SP_MB_QMS_PROD_CHECK_GET
+    </select>
+
+    <!-- 제품검사 검사항목 조회 -->
+    <select id="qmsProdCdGet" resultType="com.ins.wms.dto.QMS_PROD_CD_GET">
+        EXEC SP_MB_QMS_PROD_CD_GET #{plan_no}, #{part_code}
+    </select>
+
+    <!-- 제품검사 저장 -->
+    <select id="qmsProdCheckAdd" resultType="com.ins.wms.dto.QMS_PROD_CHECK_ADD">
+        EXEC SP_MB_QMS_PROD_CHECK_ADD #{plan_no}, #{part_code}, #{data_list}, #{user_code}
+    </select>
+
 
 </mapper>

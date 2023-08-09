@@ -18,6 +18,9 @@ public interface WmsMapper {
   List<MACHINE_TYPE_CODE_GET> machineTypeCdGet(MACHINE_TYPE_CODE_GET p);
   List<POP_PROD_ADD> popProdAdd(POP_PROD_ADD p);
   List<POP_PROD_PROC_GET> popProdProcGet(POP_PROD_PROC_GET p);
+  List<QMS_PROD_CHECK_GET> qmsProdCheckGet(QMS_PROD_CHECK_GET p);
+  List<QMS_PROD_CD_GET> qmsProdCdGet(QMS_PROD_CD_GET p);
+  List<QMS_PROD_CHECK_ADD> qmsProdCheckAdd(QMS_PROD_CHECK_ADD p);
 
 
 }

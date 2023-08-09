@@ -52,6 +52,18 @@ public class WmsRestController {
   public List<POP_PROD_PROC_GET> popProdProcGet(@RequestBody POP_PROD_PROC_GET p) {
     return wmsService.popProdProcGet(p);
   }
+  @RequestMapping(value = "/qmsProdCheckGet", method = RequestMethod.POST)
+  public List<QMS_PROD_CHECK_GET> qmsProdCheckGet(@RequestBody QMS_PROD_CHECK_GET p) {
+    return wmsService.qmsProdCheckGet(p);
+  }
+  @RequestMapping(value = "/qmsProdCdGet", method = RequestMethod.POST)
+  public List<QMS_PROD_CD_GET> qmsProdCdGet(@RequestBody QMS_PROD_CD_GET p) {
+    return wmsService.qmsProdCdGet(p);
+  }
+  @RequestMapping(value = "/qmsProdCheckAdd", method = RequestMethod.POST)
+  public List<QMS_PROD_CHECK_ADD> qmsProdCheckAdd(@RequestBody QMS_PROD_CHECK_ADD p) {
+    return wmsService.qmsProdCheckAdd(p);
+  }
 
 
 

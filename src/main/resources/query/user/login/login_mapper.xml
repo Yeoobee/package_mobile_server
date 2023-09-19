@@ -3,8 +3,8 @@
 <mapper namespace="com.ins.mapper.user.UserMapper">
 
     <!-- 로그인 진행 -->
-    <select id="login" resultType="com.ins.common.dto.Message">
-        EXEC SP_MB_LOGIN_ADD #{user_code},#{user_pwd}
+    <select id="login" resultType="com.ins.common.dto.Session">
+        EXEC SP_MB_LOGIN_ADD #{site_code},#{user_code},#{user_pwd}
     </select>
 
 

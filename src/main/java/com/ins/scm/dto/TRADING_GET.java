@@ -4,6 +4,8 @@ import lombok.Data;
 
 @Data
 public class TRADING_GET {
+  private String in_no;
+  private int site_id;
   private String tr_no;
   private String ord_no;
   private String part_code;

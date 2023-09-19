@@ -1,5 +1,7 @@
 package com.ins.scm;
 
+import com.ins.common.function.function;
+import org.apache.catalina.Session;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -8,15 +10,16 @@ import com.ins.scm.dto.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
+import javax.servlet.http.HttpServletRequest;
 @RestController
-public class ScmRestController {
+public class ScmRestController extends function {
 
   @Autowired
   private ScmService scmService;
 
   @RequestMapping(value = "/scmInGet", method = RequestMethod.POST)
   public List<SCM_IN> scmInGet(@RequestBody SCM_IN p) {
+
     return scmService.scmInGet(p);
   }
 
@@ -62,7 +65,9 @@ public class ScmRestController {
     return scmService.scmOutBcrNonAdd(p);
   }
   @RequestMapping(value = "/tradingGet", method = RequestMethod.POST)
-  public List<TRADING_GET> tradingGet(@RequestBody TRADING_GET p) {
+  public List<TRADING_GET> tradingGet(HttpServletRequest req, @RequestBody TRADING_GET p) {
+    p.setSite_id(getSessionData(req).getSite_id());
+    System.out.println("fdsafdsfdasfdasfdsaffdsfsdads "+p.getSite_id());
     return scmService.tradingGet(p);
   }
   @RequestMapping(value = "/qmsPartGet", method = RequestMethod.POST)
@@ -75,7 +80,10 @@ public class ScmRestController {
     return scmService.qmsRecvAdd(p);
   }
   @RequestMapping(value = "/scmQcAdd", method = RequestMethod.POST)
-  public List<SCM_QC_ADD> scmQcAdd(@RequestBody SCM_QC_ADD p) {
+  public List<SCM_QC_ADD> scmQcAdd(HttpServletRequest req, @RequestBody SCM_QC_ADD p) {
+    p.setSite_id(getSessionData(req).getSite_id());
+    System.out.println("fdsafdsfdasfdasfdsaffdsfsdads "+p.getSite_id());
+
     return scmService.scmQcAdd(p);
   }
   @RequestMapping(value = "/scmStockSetGet", method = RequestMethod.POST)

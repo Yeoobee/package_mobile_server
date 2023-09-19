@@ -4,6 +4,7 @@ import lombok.Data;
 
 @Data
 public class SCM_IN {
+  private int site_id;
   private String in_no;
   private String work_date;
   private String cargo_code;

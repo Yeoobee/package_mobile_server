@@ -2,60 +2,144 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ins.mapper.wms.WmsMapper">
 
-    <!-- 공정관리 조회 -->
-    <select id="qmsProcRouteCdGet" resultType="com.ins.wms.dto.QMS_PROC_ROUTE_CD_GET">
-        EXEC SP_MB_QMS_PROC_ROUTE_CD_GET
+
+    <!-- 공정 리스트 조회 -->
+    <select id="lineCdGet" resultType="com.ins.wms.dto.LINE_CD">
+        EXEC SP_MB_LINE_CD_GET #{site_id}
     </select>
 
-    <!-- 공정관리 등록 -->
-    <select id="qmsProcRouteCdAdd" resultType="com.ins.wms.dto.QMS_PROC_ROUTE_CD_ADD">
-        EXEC SP_MB_QMS_PROC_ROUTE_ADD #{data_list},#{user_code}
+    <!-- 생산계획 조회 -->
+    <select id="prodListGet" resultType="com.ins.wms.dto.POP_PROD_LIST_GET">
+        EXEC SP_MB_POP_PROD_LIST_GET #{site_id}, #{line_code}
     </select>
 
-    <!-- 제품로트추적 -->
-    <select id="wmsLotTrackGet" resultType="com.ins.wms.dto.WMS_LOT_TRACK_GET">
-        EXEC SP_MB_WMS_LOT_TRACK_GET #{bcr_no}
+    <!-- 생산계획 작업시작 버튼 -->
+    <select id="prodStart" resultType="com.ins.wms.dto.POP_PROD_ADD">
+        EXEC SP_MB_POP_PROD_START #{site_id}, #{plan_no}, #{line_code}
     </select>
 
-    <!-- 공정 라우팅 조회 -->
-    <select id="procCdGet" resultType="com.ins.wms.dto.PROC_CODE_GET">
-        EXEC SP_MB_PROC_CODE_GET
-    </select>
-
-    <!-- 실적등록 대기 리스트 조회 -->
-    <select id="popProdListGet" resultType="com.ins.wms.dto.POP_PROD_LIST_GET">
-        EXEC SP_MB_POP_PROD_LIST_GET #{proc_code}
-    </select>
-
-    <!-- 공정 호기 조회 -->
-    <select id="machineTypeCdGet" resultType="com.ins.wms.dto.MACHINE_TYPE_CODE_GET">
-        EXEC SP_MB_MACHINE_TYPE_CODE_GET
+    <!-- 생산설비 리스트 가져오기 -->
+    <select id="machineGet" resultType="com.ins.wms.dto.MACHINE_CODE_GET">
+        EXEC SP_MB_MACHINE_CODE_GET #{site_id}, #{line_code}
     </select>
 
     <!-- 실적등록 진행 -->
-    <select id="popProdAdd" resultType="com.ins.wms.dto.POP_PROD_ADD">
-        EXEC SP_MB_POP_PROD_ADD #{data_list},#{user_code},#{type}
+    <select id="prodAdd" resultType="com.ins.wms.dto.POP_PROD_ADD">
+        EXEC SP_MB_POP_PROD_ADD #{site_id}, #{plan_no}, #{line_code}, #{machine_code}, #{qty}, #{user_code}
     </select>
 
-    <!-- 공정별 작업현황 조회 -->
-    <select id="popProdProcGet" resultType="com.ins.wms.dto.POP_PROD_PROC_GET">
-        EXEC SP_MB_POP_PROD_PROC_GET #{proc_code},#{machine_code}
+    <!-- 실적등록에 사용할 자재분류 조회 -->
+    <select id="partBpartGet" resultType="com.ins.wms.dto.POP_PART_BPART">
+        EXEC SP_MB_PART_BPART_GET #{site_id}, #{part_code}
     </select>
 
-    <!-- 제품검사 항목 조회 -->
-    <select id="qmsProdCheckGet" resultType="com.ins.wms.dto.QMS_PROD_CHECK_GET">
-        EXEC SP_MB_QMS_PROD_CHECK_GET
+    <!-- 실적등록에 사용된 자재 조회 -->
+    <select id="prodBpartGet" resultType="com.ins.wms.dto.POP_PART_BPART">
+        EXEC SP_MB_POP_PROD_BPART_GET #{site_id}, #{plan_no}
     </select>
 
-    <!-- 제품검사 검사항목 조회 -->
-    <select id="qmsProdCdGet" resultType="com.ins.wms.dto.QMS_PROD_CD_GET">
-        EXEC SP_MB_QMS_PROD_CD_GET #{plan_no}, #{part_code}
+    <!-- 실적등록에 사용할 자재 조회 (선택등록) -->
+    <select id="prodScmStockGet" resultType="com.ins.wms.dto.POP_PROD_SCM_STOCK">
+        EXEC SP_MB_SCM_STOCK_GET #{site_id}, #{type_code}, #{cargo_code}
     </select>
 
-    <!-- 제품검사 저장 -->
-    <select id="qmsProdCheckAdd" resultType="com.ins.wms.dto.QMS_PROD_CHECK_ADD">
-        EXEC SP_MB_QMS_PROD_CHECK_ADD #{plan_no}, #{part_code}, #{data_list}, #{user_code}
+    <!-- 선택등록으로 선택한 품목의 LOT 목록을 가져온다. -->
+    <select id="prodScmStockLotGet" resultType="com.ins.wms.dto.POP_PROD_SCM_STOCK">
+        EXEC SP_MB_SCM_STOCK_LOT_GET #{site_id}, #{part_code}, #{cargo_code}
     </select>
+
+    <!-- 소요할 자재를 바코드 스캔한다. -->
+    <select id="prodBpartBcrGet" resultType="com.ins.wms.dto.POP_PROD_BPART_BCR">
+        EXEC SP_MB_POP_PROD_BPART_BCR_GET #{site_id}, #{bcr_no}
+    </select>
+
+    <!-- 스캔한 자재바코드를 소요한다. -->
+    <select id="prodBpartBcrAdd" resultType="com.ins.wms.dto.POP_PROD_BPART_BCR">
+        EXEC SP_MB_POP_PROD_BPART_BCR_ADD #{site_id}, #{plan_no}, #{line_code}, #{bcr_no}, #{qty}, #{user_code}
+    </select>
+
+    <!-- 사용한 자재를 취소한다. -->
+    <select id="prodBpartCancel" resultType="com.ins.wms.dto.POP_PROD_BPART_BCR">
+        EXEC SP_MB_POP_PROD_BPART_CANCEL #{site_id}, #{plan_no}, #{line_code}, #{part_code}, #{bcr_no}, #{user_code}
+    </select>
+
+    <!-- 선택등록에서 선택한 자재를 사용한다. -->
+    <select id="prodBpartAdd" resultType="com.ins.wms.dto.POP_PROD_BPART_ADD">
+        EXEC SP_MB_POP_PROD_BPART_ADD #{site_id}, #{plan_no}, #{line_code}, #{cargo_code}, #{lot_yn}, #{part_code}, #{qty}, #{bcr_no}, #{user_code}
+    </select>
+
+    <!-- 중간검사 리스트를 보여준다. -->
+    <select id="procCheckGet" resultType="com.ins.wms.dto.QMS_PROC_CHECK">
+        EXEC SP_MB_QMS_PROC_CHECK_GET #{site_id}, #{line_code}
+    </select>
+
+    <!-- 중간검사 항목 보여준다. -->
+    <select id="prodProcGet" resultType="com.ins.wms.dto.POP_PROD_PROC_GET">
+        EXEC SP_MB_POP_PROD_PROC_GET #{site_id}, #{plan_no}, #{line_code}, #{user_code}
+    </select>
+
+    <!-- 중간검사 등록한다. -->
+    <select id="prodProcAdd" resultType="com.ins.wms.dto.POP_PROD_PROC_ADD">
+        EXEC SP_MB_POP_PROD_PROC_ADD #{site_id}, #{plan_no}, #{line_code}, #{data_list}, #{user_code}
+    </select>
+
+    <!-- 중간검사 승인 리스트를 가져온다. -->
+    <select id="prodProcApprovalGet" resultType="com.ins.wms.dto.POP_PROD_PROC_APPROVAL">
+        EXEC SP_MB_POP_PROD_PROC_APPROVAL_GET #{site_id}, #{line_code}
+    </select>
+
+    <!-- 중간검사 승인 세부내용을 가져온다. -->
+    <select id="prodProcApprovalSubGet" resultType="com.ins.wms.dto.POP_PROD_PROC_APPROVAL_SUB">
+        EXEC SP_MB_POP_PROD_PROC_APPROVAL_SUB_GET #{site_id}, #{qc_no}
+    </select>
+
+    <!-- 중간검사 승인을 한다. -->
+    <select id="prodProcApprovalAdd" resultType="com.ins.wms.dto.POP_PROD_PROC_APPROVAL">
+        EXEC SP_MB_POP_PROD_PROC_APPROVAL_ADD #{site_id}, #{qc_no}, #{user_code}
+    </select>
+
+
+
+
+    <!-- 외주출고 리스트를 가져온다. -->
+    <select id="outsGet" resultType="com.ins.wms.dto.PROC_OUTS">
+        EXEC SP_MB_OUTS_GET #{site_id}
+    </select>
+
+    <!-- 외주출고를 진행한다. -->
+    <select id="outsAdd" resultType="com.ins.wms.dto.PROC_OUTS">
+        EXEC SP_MB_OUTS_ADD #{site_id}, #{plan_no}, #{line_code}, #{user_code}
+    </select>
+
+    <!-- 외주입고 리스트를 가져온다. -->
+    <select id="outsInGet" resultType="com.ins.wms.dto.PROC_OUTS">
+        EXEC SP_MB_OUTS_IN_GET #{site_id}
+    </select>
+
+    <!-- 외주입고를 진행한다. -->
+    <select id="outsInAdd" resultType="com.ins.wms.dto.PROC_OUTS">
+        EXEC SP_MB_OUTS_IN_ADD #{site_id},#{plan_no},#{line_code}
+    </select>
+
+
+    <!-- 제품검사리스트를 가져온다. -->
+    <select id="prodCheckGet" resultType="com.ins.wms.dto.QMS_PROD_CHECK_GET">
+        EXEC SP_MB_QMS_PROD_CHECK_GET #{site_id}
+    </select>
+
+    <!-- 제품검사항목을 가져온다. -->
+    <select id="prodCheckCdGet" resultType="com.ins.wms.dto.QMS_PROD_CD_GET">
+        EXEC SP_MB_QMS_PROD_CD_GET #{site_id},#{plan_no}
+    </select>
+
+    <!-- 제품검사를 진행한다. -->
+    <select id="prodCheckAdd" resultType="com.ins.wms.dto.QMS_PROD_CHECK_ADD">
+        EXEC SP_MB_QMS_PROD_CHECK_ADD #{site_id},#{plan_no},#{data_list},#{user_code}
+    </select>
+
+
+
+
 
 
 </mapper>

@@ -74,4 +74,40 @@ public class ScmService {
 
   public List<SCM_STOCK_SET_REASON_CD_GET> scmStockSetReasonCdGet(SCM_STOCK_SET_REASON_CD_GET p) {return ScmMapper.scmStockSetReasonCdGet(p);
   }
+
+    public List<TRADING_GET> tradingGetAll(TRADING_GET p) {return ScmMapper.tradingGetAll(p);
+    }
+
+  public List<TRADING_GET> tradingSubGetAll(TRADING_GET p) {return ScmMapper.tradingSubGetAll(p);
+  }
+
+  public List<TRADING_GET> tradingGetAll2(TRADING_GET p) {return ScmMapper.tradingGetAll2(p);
+  }
+
+  public List<QMS_RECV_APPROVAL_GET> qmsRecvApprovalGet(QMS_RECV_APPROVAL_GET p) {return ScmMapper.qmsRecvApprovalGet(p);
+  }
+
+  public List<QMS_PART_GET> qmsRecvCdApprovalGet(QMS_PART_GET p) {return ScmMapper.qmsRecvCdApprovalGet(p);
+  }
+
+  public List<QMS_RECV_CHECK_GET> qmsRecvApprovalSubGet(QMS_RECV_CHECK_GET p) {return ScmMapper.qmsRecvApprovalSubGet(p);
+  }
+
+  public List<QMS_RECV_ADD> qmsRecvApprovalAdd(QMS_RECV_ADD p) {return ScmMapper.qmsRecvApprovalAdd(p);
+  }
+
+  public List<TRADING_GET> scmInTradingGet(TRADING_GET p) {return ScmMapper.scmInTradingGet(p);
+  }
+
+  public List<SCM_IN> scmIn(SCM_IN p) {return ScmMapper.scmIn(p);
+  }
+
+  public List<BPART_GET> bpartTypeGet(BPART_GET p) {return ScmMapper.bpartTypeGet(p);
+  }
+
+  public List<SCM_OUT> scmOut(SCM_OUT p) {return ScmMapper.scmOut(p);
+  }
+
+  public List<QMS_RECV_ADD> qmsRecvComp(QMS_RECV_ADD p) {return ScmMapper.qmsRecvComp(p);
+  }
 }

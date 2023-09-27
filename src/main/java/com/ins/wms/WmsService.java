@@ -16,37 +16,91 @@ public class WmsService {
   @Autowired
   private WmsMapper WmsMapper;
 
-  public List<QMS_PROC_ROUTE_CD_GET> qmsProcRouteCdGet(QMS_PROC_ROUTE_CD_GET p) {return WmsMapper.qmsProcRouteCdGet(p);
+  public List<LINE_CD> lineCdGet(LINE_CD p) {return WmsMapper.lineCdGet(p);
   }
 
-  public List<QMS_PROC_ROUTE_CD_ADD> qmsProcRouteCdAdd(QMS_PROC_ROUTE_CD_ADD p) {return WmsMapper.qmsProcRouteCdAdd(p);
+  public List<POP_PROD_LIST_GET> prodListGet(POP_PROD_LIST_GET p) {return WmsMapper.prodListGet(p);
   }
 
-  public List<WMS_LOT_TRACK_GET> wmsLotTrackGet(WMS_LOT_TRACK_GET p) {return WmsMapper.wmsLotTrackGet(p);
-  }
-
-  public List<PROC_CODE_GET> procCdGet(PROC_CODE_GET p) {return WmsMapper.procCdGet(p);
-  }
-
-  public List<POP_PROD_LIST_GET> popProdListGet(POP_PROD_LIST_GET p) {return WmsMapper.popProdListGet(p);
-  }
-
-  public List<MACHINE_TYPE_CODE_GET> machineTypeCdGet(MACHINE_TYPE_CODE_GET p) {return WmsMapper.machineTypeCdGet(p);
-  }
-
-  public List<POP_PROD_ADD> popProdAdd(POP_PROD_ADD p) {return WmsMapper.popProdAdd(p);
-  }
-
-  public List<POP_PROD_PROC_GET> popProdProcGet(POP_PROD_PROC_GET p) {return WmsMapper.popProdProcGet(p);
-  }
-
-  public List<QMS_PROD_CHECK_GET> qmsProdCheckGet(QMS_PROD_CHECK_GET p) {return WmsMapper.qmsProdCheckGet(p);
+  public List<POP_PROD_ADD> prodStart(POP_PROD_ADD p) {return WmsMapper.prodStart(p);
   }
 
 
-  public List<QMS_PROD_CD_GET> qmsProdCdGet(QMS_PROD_CD_GET p) {return WmsMapper.qmsProdCdGet(p);
+  public List<MACHINE_CODE_GET> machineGet(MACHINE_CODE_GET p) {return WmsMapper.machineGet(p);
   }
 
-  public List<QMS_PROD_CHECK_ADD> qmsProdCheckAdd(QMS_PROD_CHECK_ADD p) {return WmsMapper.qmsProdCheckAdd(p);
+  public List<POP_PROD_ADD> prodAdd(POP_PROD_ADD p) {return WmsMapper.prodAdd(p);
+  }
+
+  public List<POP_PART_BPART> partBpartGet(POP_PART_BPART p) {return WmsMapper.partBpartGet(p);
+  }
+
+  public List<POP_PROD_SCM_STOCK> prodScmStockGet(POP_PROD_SCM_STOCK p) {return WmsMapper.prodScmStockGet(p);
+  }
+
+  public List<POP_PROD_SCM_STOCK> prodScmStockLotGet(POP_PROD_SCM_STOCK p) {return WmsMapper.prodScmStockLotGet(p);
+  }
+
+  public List<POP_PROD_BPART_BCR> prodBpartBcrGet(POP_PROD_BPART_BCR p) {return WmsMapper.prodBpartBcrGet(p);
+  }
+
+  public List<POP_PROD_BPART_BCR> prodBpartBcrAdd(POP_PROD_BPART_BCR p) {return WmsMapper.prodBpartBcrAdd(p);
+  }
+
+  public List<POP_PART_BPART> prodBpartGet(POP_PART_BPART p) {return WmsMapper.prodBpartGet(p);
+  }
+
+  public List<POP_PROD_BPART_BCR> prodBpartCancel(POP_PROD_BPART_BCR p) {return WmsMapper.prodBpartCancel(p);
+  }
+
+  public List<POP_PROD_BPART_ADD> prodBpartAdd(POP_PROD_BPART_ADD p) {return WmsMapper.prodBpartAdd(p);
+  }
+
+  public List<QMS_PROC_CHECK> procCheckGet(QMS_PROC_CHECK p) {return WmsMapper.procCheckGet(p);
+  }
+
+  public List<PROC_OUTS> outsGet(PROC_OUTS p) {return WmsMapper.outsGet(p);
+  }
+
+  public List<PROC_OUTS> outsAdd(PROC_OUTS p) {return WmsMapper.outsAdd(p);
+  }
+
+  public List<POP_PROD_PROC_GET> prodProcGet(POP_PROD_PROC_GET p) {return WmsMapper.prodProcGet(p);
+  }
+
+  public List<POP_PROD_PROC_ADD> prodProcAdd(POP_PROD_PROC_ADD p) {return WmsMapper.prodProcAdd(p);
+  }
+
+  public List<POP_PROD_PROC_APPROVAL> prodProcApprovalGet(POP_PROD_PROC_APPROVAL p) {return WmsMapper.prodProcApprovalGet(p);
+  }
+
+  public List<POP_PROD_PROC_APPROVAL_SUB> prodProcApprovalSubGet(POP_PROD_PROC_APPROVAL_SUB p) {return WmsMapper.prodProcApprovalSubGet(p);
+  }
+
+  public List<POP_PROD_PROC_APPROVAL> prodProcApprovalAdd(POP_PROD_PROC_APPROVAL p) {return WmsMapper.prodProcApprovalAdd(p);
+  }
+
+  public List<QMS_PROD_CHECK_GET> prodCheckGet(QMS_PROD_CHECK_GET p) {return WmsMapper.prodCheckGet(p);
+  }
+
+  public List<PROC_OUTS> outsInGet(PROC_OUTS p) {return WmsMapper.outsInGet(p);
+  }
+
+  public List<PROC_OUTS> outsInAdd(PROC_OUTS p) {return WmsMapper.outsInAdd(p);
+  }
+
+  public List<QMS_PROD_CD_GET> prodCheckCdGet(QMS_PROD_CD_GET p) {return WmsMapper.prodCheckCdGet(p);
+  }
+
+  public List<QMS_PROD_CHECK_ADD> prodCheckAdd(QMS_PROD_CHECK_ADD p) {return WmsMapper.prodCheckAdd(p);
+  }
+
+  public List<QMS_PROD_APPROVAL> prodApprovalGet(QMS_PROD_APPROVAL p) {return WmsMapper.prodApprovalGet(p);
+  }
+
+  public List<QMS_PROD_APPROVAL> prodApprovalAdd(QMS_PROD_APPROVAL p) {return WmsMapper.prodApprovalAdd(p);
+  }
+
+  public List<WMS_OUT_ORD_GET> wmsOutOrdGet(WMS_OUT_ORD_GET p) {return WmsMapper.wmsOutOrdGet(p);
   }
 }

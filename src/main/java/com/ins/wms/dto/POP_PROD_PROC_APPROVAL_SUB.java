@@ -3,20 +3,13 @@ package com.ins.wms.dto;
 import lombok.Data;
 
 @Data
-public class POP_PROD_PROC_GET {
+public class POP_PROD_PROC_APPROVAL_SUB {
   private int  site_id;
-  private String plan_no;
-  private String line_code;
-  private String user_code;
-  private int seq;
+  private String qc_no;
   private int show_seq;
   private String qc_item1;
   private String qc_item2;
   private String qc_item3;
-  private String result_type;
-  private String calc_text;
-  private double qc_spec1;
-  private double qc_spec2;
   private double qc_value1;
   private double qc_value2;
   private double qc_value3;

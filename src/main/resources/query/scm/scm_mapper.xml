@@ -27,14 +27,19 @@
         EXEC SP_MB_SCM_IN_SUB_GET #{in_no}
     </select>
 
-    <!-- 자재출고 조회 -->
+    <!-- 자재출고 품목 조회 -->
     <select id="scmOutGet" resultType="com.ins.scm.dto.SCM_OUT_GET">
-        EXEC SP_MB_SCM_OUT_GET #{work_date}, #{cargo_code}
+        EXEC SP_MB_SCM_OUT_GET #{site_id}, #{cargo_code}, #{type_code}
     </select>
 
     <!-- 자재출고 서브 조회 -->
     <select id="scmOutSubGet" resultType="com.ins.scm.dto.SCM_OUT_SUB_GET">
         EXEC SP_MB_SCM_OUT_SUB_GET #{work_date}, #{cargo_code}, #{part_code}
+    </select>
+
+    <!-- 자재출고진행 -->
+    <select id="scmOut" resultType="com.ins.scm.dto.SCM_OUT">
+        EXEC SP_MB_SCM_OUT_ADD #{site_id},#{cargo_code}, #{part_code},#{qty},#{out_date},#{user_code}
     </select>
 
     <!-- 자재출고진행 (바코드) -->
@@ -44,7 +49,12 @@
 
     <!-- 창고 리스트 조회-->
     <select id="scmCargoGet" resultType="com.ins.scm.dto.SCM_CARGO_GET">
-        EXEC SP_MB_SCM_CARGO_CD_GET #{type}
+        EXEC SP_MB_SCM_CARGO_CD_GET #{site_id}
+    </select>
+
+    <!-- 자재분류 조회-->
+    <select id="bpartTypeGet" resultType="com.ins.scm.dto.BPART_GET">
+        EXEC SP_MB_BPART_TYPE_CD_GET #{site_id}
     </select>
 
     <!-- 바코드 미관리 항목 자재조회-->
@@ -59,18 +69,70 @@
 
     <!-- 거래명세서 스캔 -->
     <select id="tradingGet" resultType="com.ins.scm.dto.TRADING_GET">
-        EXEC SP_MB_TRADING_GET #{tr_no}
+        EXEC SP_MB_TRADING_GET #{site_id}, #{tr_no}
+    </select>
+
+    <!-- 거래명세서 수동선택 -->
+    <select id="tradingGetAll" resultType="com.ins.scm.dto.TRADING_GET">
+        EXEC SP_MB_TRADING_ALL_GET #{site_id} ,#{type}
+    </select>
+
+    <!-- 거래명세서 세부내용 수동선택 -->
+    <select id="tradingSubGetAll" resultType="com.ins.scm.dto.TRADING_GET">
+        EXEC SP_MB_TRADING_SUB_ALL_GET #{site_id}, #{tr_no}
+    </select>
+
+    <!-- 거래명세서 수동선택(한번에) -->
+    <select id="tradingGetAll2" resultType="com.ins.scm.dto.TRADING_GET">
+        EXEC SP_MB_TRADING_ALL_GET_1 #{site_id} ,#{type}
     </select>
 
     <!-- 수입검사 스캔(파트코드) -->
     <select id="qmsPartGet" resultType="com.ins.scm.dto.QMS_PART_GET">
-        EXEC SP_MB_QMS_RECV_GET #{part_code}
+        EXEC SP_MB_QMS_RECV_GET #{site_id}, #{part_code}, #{tr_no}
     </select>
 
     <!-- 수입검사 진행-->
     <select id="qmsRecvAdd" resultType="com.ins.scm.dto.QMS_RECV_ADD">
-        EXEC SP_MB_QMS_RECV_ADD #{tr_no}, #{part_code}, #{ord_no}, #{data_list}, #{user_code}
+        EXEC SP_MB_QMS_RECV_ADD #{site_id}, #{tr_no}, #{part_code}, #{ord_no}, #{data_list}, #{user_code}
     </select>
+
+    <!-- 수입검사 검사완료버튼-->
+    <select id="qmsRecvComp" resultType="com.ins.scm.dto.QMS_RECV_ADD">
+        EXEC SP_MB_QMS_RECV_COMP #{site_id}, #{tr_no}, #{remark}, #{user_code}
+    </select>
+
+    <!-- 수입검사 승인 리스트 조회-->
+    <select id="qmsRecvApprovalGet" resultType="com.ins.scm.dto.QMS_RECV_APPROVAL_GET">
+        EXEC SP_MB_QMS_RECV_APPROVAL_GET #{site_id}, #{user_code}
+    </select>
+
+    <!-- 수입검사 승인 검사항목 리스트 조회-->
+    <select id="qmsRecvCdApprovalGet" resultType="com.ins.scm.dto.QMS_PART_GET">
+        EXEC SP_MB_QMS_RECV_CD_APPROVAL_GET #{site_id}, #{tr_no}
+    </select>
+
+    <!-- 수입검사 승인 세부보기 리스트 조회-->
+    <select id="qmsRecvApprovalSubGet" resultType="com.ins.scm.dto.QMS_RECV_CHECK_GET">
+        EXEC SP_MB_QMS_RECV_APPROVAL_SUB_GET #{site_id}, #{qc_no}, #{part_code}
+    </select>
+
+    <!-- 수입검사 승인 진행-->
+    <select id="qmsRecvApprovalAdd" resultType="com.ins.scm.dto.QMS_RECV_ADD">
+        EXEC SP_MB_QMS_RECV_APPROVAL_ADD #{site_id}, #{tr_no},#{qc_no}, #{part_code},#{user_code}
+    </select>
+
+    <!-- 자재입고 거래명세서 조회 -->
+    <select id="scmInTradingGet" resultType="com.ins.scm.dto.TRADING_GET">
+        EXEC SP_MB_SCM_IN_TRADING_GET #{site_id}, #{tr_no}
+    </select>
+
+    <!-- 자재입고 진행 -->
+    <select id="scmIn" resultType="com.ins.scm.dto.SCM_IN">
+        EXEC SP_MB_SCM_IN_ADD #{site_id},#{tr_no},#{data_list},#{user_code}
+    </select>
+
+
 
     <!-- 거래명세서 입고진행 -->
     <select id="scmQcAdd" resultType="com.ins.scm.dto.SCM_QC_ADD">

@@ -5,7 +5,6 @@ import lombok.Data;
 @Data
 public class QMS_PART_GET {
   private String part_code;
-  private String spec;
   private int seq;
   private String qc_item1;
   private String qc_item2;
@@ -21,6 +20,16 @@ public class QMS_PART_GET {
   private String val4;
   private String val5;
   private String qc_result;
-
-
+  private int site_id;
+  private String tr_no;
+  private double qc_value1;
+  private double qc_value2;
+  private double qc_value3;
+  private double qc_value4;
+  private double qc_value5;
+  private String qc_result1;
+  private String qc_result2;
+  private String qc_result3;
+  private String qc_result4;
+  private String qc_result5;
 }

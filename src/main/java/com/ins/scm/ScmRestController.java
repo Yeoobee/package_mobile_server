@@ -66,9 +66,19 @@ public class ScmRestController extends function {
   }
   @RequestMapping(value = "/tradingGet", method = RequestMethod.POST)
   public List<TRADING_GET> tradingGet(HttpServletRequest req, @RequestBody TRADING_GET p) {
-    p.setSite_id(getSessionData(req).getSite_id());
-    System.out.println("fdsafdsfdasfdasfdsaffdsfsdads "+p.getSite_id());
     return scmService.tradingGet(p);
+  }
+  @RequestMapping(value = "/tradingGetAll", method = RequestMethod.POST)
+  public List<TRADING_GET> tradingGetAll(HttpServletRequest req, @RequestBody TRADING_GET p) {
+    return scmService.tradingGetAll(p);
+  }
+  @RequestMapping(value = "/tradingGetAll2", method = RequestMethod.POST)
+  public List<TRADING_GET> tradingGetAll2(HttpServletRequest req, @RequestBody TRADING_GET p) {
+    return scmService.tradingGetAll2(p);
+  }
+  @RequestMapping(value = "/tradingSubGetAll", method = RequestMethod.POST)
+  public List<TRADING_GET> tradingSubGetAll(HttpServletRequest req, @RequestBody TRADING_GET p) {
+    return scmService.tradingSubGetAll(p);
   }
   @RequestMapping(value = "/qmsPartGet", method = RequestMethod.POST)
   public List<QMS_PART_GET> qmsPartGet(@RequestBody QMS_PART_GET p) {
@@ -79,12 +89,48 @@ public class ScmRestController extends function {
   public List<QMS_RECV_ADD> qmsPartGet(@RequestBody QMS_RECV_ADD p) {
     return scmService.qmsRecvAdd(p);
   }
+  @RequestMapping(value = "/qmsRecvComp", method = RequestMethod.POST)
+  public List<QMS_RECV_ADD> qmsRecvComp(@RequestBody QMS_RECV_ADD p) {
+    return scmService.qmsRecvComp(p);
+  }
   @RequestMapping(value = "/scmQcAdd", method = RequestMethod.POST)
   public List<SCM_QC_ADD> scmQcAdd(HttpServletRequest req, @RequestBody SCM_QC_ADD p) {
     p.setSite_id(getSessionData(req).getSite_id());
     System.out.println("fdsafdsfdasfdasfdsaffdsfsdads "+p.getSite_id());
 
     return scmService.scmQcAdd(p);
+  }
+  @RequestMapping(value = "/qmsRecvApprovalGet", method = RequestMethod.POST)
+  public List<QMS_RECV_APPROVAL_GET> qmsRecvApprovalGet(@RequestBody QMS_RECV_APPROVAL_GET p) {
+    return scmService.qmsRecvApprovalGet(p);
+  }
+  @RequestMapping(value = "/qmsRecvApprovalAdd", method = RequestMethod.POST)
+  public List<QMS_RECV_ADD> qmsRecvApprovalAdd(@RequestBody QMS_RECV_ADD p) {
+    return scmService.qmsRecvApprovalAdd(p);
+  }
+  @RequestMapping(value = "/scmInTradingGet", method = RequestMethod.POST)
+  public List<TRADING_GET> scmInTradingGet(@RequestBody TRADING_GET p) {
+    return scmService.scmInTradingGet(p);
+  }
+  @RequestMapping(value = "/scmIn", method = RequestMethod.POST)
+  public List<SCM_IN> scmIn(@RequestBody SCM_IN p) {
+    return scmService.scmIn(p);
+  }
+  @RequestMapping(value = "/bpartTypeGet", method = RequestMethod.POST)
+  public List<BPART_GET> bpartTypeGet(@RequestBody BPART_GET p) {
+    return scmService.bpartTypeGet(p);
+  }
+  @RequestMapping(value = "/scmOut", method = RequestMethod.POST)
+  public List<SCM_OUT> scmOut(@RequestBody SCM_OUT p) {
+    return scmService.scmOut(p);
+  }
+  @RequestMapping(value = "/qmsRecvCdApprovalGet", method = RequestMethod.POST)
+  public List<QMS_PART_GET> qmsRecvCdApprovalGet(@RequestBody QMS_PART_GET p) {
+    return scmService.qmsRecvCdApprovalGet(p);
+  }
+  @RequestMapping(value = "/qmsRecvApprovalSubGet", method = RequestMethod.POST)
+  public List<QMS_RECV_CHECK_GET> qmsRecvApprovalSubGet(@RequestBody QMS_RECV_CHECK_GET p) {
+    return scmService.qmsRecvApprovalSubGet(p);
   }
   @RequestMapping(value = "/scmStockSetGet", method = RequestMethod.POST)
   public List<SCM_STOCK_SET_GET> scmStockSetGet(@RequestBody SCM_STOCK_SET_GET p) {

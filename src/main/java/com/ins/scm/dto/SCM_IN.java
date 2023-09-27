@@ -16,5 +16,8 @@ public class SCM_IN {
   private String cargo_name;
   private String supp_name;
   private String remark;
+  private String data_list;
+  private String result;
+  private String msg;
 
 }

@@ -30,7 +30,7 @@ public class UserRestController{
         session.setAttribute("userData",sessData);
         session.setMaxInactiveInterval(60*60*24);
 
-        return sessData;
+        return userService.login(dto);
     }
 
 }
